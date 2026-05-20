@@ -1,0 +1,29 @@
+{
+  "name": "openclaw-x-signal",
+  "version": "1.0.0",
+  "description": "X/Twitter crypto and market intelligence agent for tracking narratives, sentiment, token mentions, and market validation.",
+  "type": "module",
+  "main": "x-agent.mjs",
+  "scripts": {
+    "scrape": "node x-agent.mjs",
+    "search": "node x-agent.mjs --search",
+    "full": "node x-agent.mjs --full",
+    "daily": "node daily-run.mjs --telegram-parts"
+  },
+  "keywords": [
+    "x-twitter",
+    "crypto",
+    "market-intelligence",
+    "ai-agent",
+    "openclaw",
+    "playwright",
+    "sentiment-analysis",
+    "social-listening",
+    "telegram"
+  ],
+  "author": "Zi Yik Tin",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}
