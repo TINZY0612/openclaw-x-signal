@@ -1,5 +1,9 @@
 # X Agent: Crypto and Market Intelligence from X/Twitter
 
+<p align="center">
+  <img src="x-signal-agent-preview.png" alt="OpenClaw X Signal architecture preview" width="100%">
+</p>
+
 X Agent is a Playwright-based X/Twitter monitoring and analysis tool for crypto market intelligence. It reads a curated X List, searches high-signal market narratives, classifies sentiment, tracks token mentions, cross-validates X buzz against market data, and generates structured JSON plus Telegram-ready daily reports.
 
 It is designed as an analyst layer, not an execution engine. Use it to understand what X is talking about, what narratives are heating up, and whether social attention is confirmed by price, volume, liquidity, or funding data.
@@ -104,8 +108,8 @@ Create a secrets file outside the repository:
 mkdir -p ~/.openclaw/secrets
 cat > ~/.openclaw/secrets/x-twitter.json << 'EOF'
 {
-  "xactions_session_cookie": "YOUR_AUTH_TOKEN_HERE",
-  "x_twitter_ct0": "YOUR_CT0_HERE"
+  "x_auth_token": "YOUR_AUTH_TOKEN_HERE",
+  "x_ct0": "YOUR_CT0_HERE"
 }
 EOF
 chmod 600 ~/.openclaw/secrets/x-twitter.json
@@ -457,9 +461,9 @@ x-twitter.json
 MIT
 
 ## Acknowledgments
-
 - [Playwright](https://playwright.dev/) for browser automation
 - [Binance](https://www.binance.com/) public market data
 - [CoinGecko](https://www.coingecko.com/) public market data
 - [Dexscreener](https://dexscreener.com/) public market data
+- [XActions](https://github.com/nirholas/XActions) for inspiration around X/Twitter automation patterns and session-cookie based workflows
 
