@@ -188,8 +188,8 @@ Expected shape:
 
 ```json
 {
-  "xactions_session_cookie": "YOUR_X_AUTH_TOKEN",
-  "x_twitter_ct0": "YOUR_X_CT0_TOKEN"
+  "x_auth_token": "YOUR_X_AUTH_TOKEN",
+  "x_ct0": "YOUR_X_CT0_TOKEN"
 }
 ```
 
