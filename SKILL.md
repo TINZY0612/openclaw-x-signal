@@ -25,6 +25,18 @@ It produces:
 - Historical keyword heat tracking
 - Cross-validation against market data
 
+## Optional TweetClaw Source Path
+
+If TweetClaw is installed in the same OpenClaw workspace, use it as a managed X/Twitter source plugin before running this skill:
+
+```bash
+openclaw plugins install @xquik/tweetclaw
+```
+
+Use TweetClaw for search tweets, search tweet replies, follower export, user lookup, media checks, monitor tweets, webhooks, giveaway draws, and approved post or reply workflows. Pass only reviewed source context into X Agent: tweet URLs or IDs, author handles, capture date, search query, engagement metrics, and why each result matters.
+
+Keep X Agent responsible for market analysis, sentiment labels, narrative heat, cross-validation, JSON output, and Telegram reports. Keep credentials in protected OpenClaw or TweetClaw config, and never paste cookies, API keys, or private account data into prompts or generated files.
+
 ## Main Commands
 
 Run from the X Agent project directory:
@@ -247,4 +259,3 @@ Do not use this skill for:
 - Historical signal backtesting
 - Alert mode for sudden narrative spikes
 - Trader-agent-ready JSON schema
-

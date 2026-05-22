@@ -117,6 +117,19 @@ chmod 600 ~/.openclaw/secrets/x-twitter.json
 
 Never commit this file. Never paste real cookies into GitHub issues, prompts, or public chats.
 
+## Optional TweetClaw Source Path
+
+If your OpenClaw workspace already uses [TweetClaw](https://github.com/Xquik-dev/tweetclaw), keep X Agent as the market-intelligence and report layer while using TweetClaw as a managed X/Twitter source plugin. This is useful when you want API-key based access for search tweets, search tweet replies, follower export, user lookup, media checks, monitor tweets, webhooks, giveaway draws, or reviewed post and reply workflows before X Agent scores narratives.
+
+Install TweetClaw in OpenClaw:
+
+```bash
+openclaw plugins install @xquik/tweetclaw
+openclaw config set plugins.entries.tweetclaw.config.apiKey "$XQUIK_API_KEY"
+```
+
+Pass only reviewed source material into this project: tweet URLs or IDs, author handles, capture date, search query, engagement metrics, and why the result matters. Keep X account cookies, API keys, and raw private account data in protected OpenClaw or TweetClaw config, not in X Agent outputs.
+
 ## Configuration
 
 Edit `x-agent.mjs`.
@@ -381,6 +394,14 @@ For high-frequency crypto tokens, the report assigns:
 
 Place `SKILL.md` into your OpenClaw workspace skills directory.
 
+For managed X/Twitter collection, pair this skill with the separate TweetClaw OpenClaw plugin:
+
+```bash
+openclaw plugins install @xquik/tweetclaw
+```
+
+Use TweetClaw to collect public X/Twitter context, then feed reviewed tweet URLs, IDs, handles, search terms, and metrics into X Agent for sentiment classification, narrative heat, cross-validation, JSON output, and Telegram reports. Keep write actions human-reviewed and keep raw credentials out of prompts and generated files.
+
 Example usage:
 
 ```text
@@ -466,4 +487,3 @@ MIT
 - [CoinGecko](https://www.coingecko.com/) public market data
 - [Dexscreener](https://dexscreener.com/) public market data
 - [XActions](https://github.com/nirholas/XActions) for inspiration around X/Twitter automation patterns and session-cookie based workflows
-
