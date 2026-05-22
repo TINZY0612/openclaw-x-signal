@@ -187,8 +187,8 @@ function classifySentiment(text) {
 function isMarketRelevant(text) {
   return keywordMatches(text).length > 0 ||
     /\$[A-Za-z]{2,10}\b/.test(text || "") ||
-    /\b(btc|eth|sol|bnb|xrp|defi|rwa|crypto|bitcoin|ethereum|solana|stablecoin|token|chain|onchain|etf|altcoin|memecoin|stocks?|equities|nasdaq|s&p|dow|dxy|treasury|yield|bond|fed|fomc|cpi|ppi|in/.test(text || "") ||
-    /(比特币|以太坊|加密|币圈|链上|山寨|山寨币|稳定币|合约|现货|期货|交易所|资金费率|爆仓|清算|暴涨|暴跌|拉盘|砸盘|牛市|熊市|监管|降息|加息|/.test(text || "");
+    /\b(btc|eth|sol|bnb|xrp|defi|rwa|crypto|bitcoin|ethereum|solana|stablecoin|token|chain|onchain|etf|altcoin|memecoin|stocks?|equities|nasdaq|s&p|dow|dxy|treasury|yield|bond|fed|fomc|cpi|ppi)\b/i.test(text || "") ||
+    /(比特币|以太坊|加密|币圈|链上|山寨|山寨币|稳定币|合约|现货|期货|交易所|资金费率|爆仓|清算|暴涨|暴跌|拉盘|砸盘|牛市|熊市|监管|降息|加息)/.test(text || "");
 }
 
 const isCryptoRelevant = isMarketRelevant;
@@ -324,6 +324,7 @@ function formatTelegramSummary(out) {
   if (out.sources?.list) sourceBits.push(`X List ${out.sources.list}`);
   if (out.sources?.signal) sourceBits.push(`信号 ${out.sources.signal}`);
   if (out.sources?.narrative) sourceBits.push(`叙事 ${out.sources.narrative}`);
+  const hotTopics = (out.cryptoTrending || []).slice(0, 3).map(x => x.keyword).join("、") || "crypto";
 
   const lines = [
     `🐦 X/Twitter 每日精选 · ${new Date(out.timestamp || Date.now()).toISOString().slice(0,10).replaceAll("-", ".")}`,
@@ -331,7 +332,7 @@ function formatTelegramSummary(out) {
     "━━━━━━━━━━━━━━━━━━━━━",
     "",
     "📊 市场情绪总览",
-    `本次覆盖 ${out.totalTweets} 条推文，来自 ${sourceBits.join(" / ") || "X"}。热点主要集中在 ${(out.cryptoTrending || []).slice(0,3).map(x=>x.keyword).join("、") || "crypto �",
+    `本次覆盖 ${out.totalTweets} 条推文，来自 ${sourceBits.join(" / ") || "X"}。热点主要集中在 ${hotTopics}。`,
     "",
     "━━━━━━━━━━━━━━━━━━━━━",
     "",
